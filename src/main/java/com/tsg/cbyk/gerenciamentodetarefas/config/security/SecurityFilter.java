@@ -14,8 +14,7 @@ import java.io.IOException;
 
 @Component
 public class SecurityFilter extends OncePerRequestFilter {
-// usando filtro do Spring ao invés do java Filter
-
+    
     private final TokenService tokenService;
     private final UsuarioService usuarioService;
     private final TokenBlackList tokenBlackList;
