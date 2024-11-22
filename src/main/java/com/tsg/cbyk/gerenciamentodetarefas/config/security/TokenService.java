@@ -24,8 +24,8 @@ public class TokenService {
             var dataxpiracao = LocalDateTime.now().plusHours(4L).toInstant(ZoneOffset.of("-03:00"));
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
-                    .withIssuer("desafio cbyk") // quem gera o token
-                    .withSubject(usuario.getEmail()) // que é o dono do token
+                    .withIssuer("desafio cbyk")
+                    .withSubject(usuario.getEmail())
                     .withExpiresAt(dataxpiracao)
                     .sign(algoritmo);
         } catch (JWTCreationException exception) {
@@ -33,7 +33,6 @@ public class TokenService {
         }
     }
 
-    // verificando subject do tocken
     public String getSubject(String tokenJWT) {
         try {
             var algoritmo = Algorithm.HMAC256(secret);
